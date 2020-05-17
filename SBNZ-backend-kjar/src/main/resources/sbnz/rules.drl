@@ -100,3 +100,12 @@ rule "Klasifikovanje zemljista kao jako karbonatno"
 
 end
 
+rule "Jabuka"
+	when
+		$z: Zemljiste(phCategory == phCategory.SLABO_KISELO)
+	then
+		System.out.println("");
+		System.out.println("Jabuka");
+		System.out.println("");
+		
+end

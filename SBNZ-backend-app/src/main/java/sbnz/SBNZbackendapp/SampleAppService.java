@@ -39,4 +39,12 @@ public class SampleAppService {
 		kieSession.dispose();
 		return z;
 	}
+	
+	public String getVoce(Zemljiste z) {
+		KieSession kieSession = kieContainer.newKieSession();
+		kieSession.insert(z);
+		kieSession.fireAllRules();
+		kieSession.dispose();
+		return "";
+	}
 }
