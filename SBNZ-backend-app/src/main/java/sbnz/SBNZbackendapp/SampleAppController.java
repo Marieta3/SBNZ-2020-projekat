@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import sbnz.SBNZbackendapp.facts.Item;
-
+import sbnz.SBNZbackendapp.facts.Zemljiste;
 
 @RestController
 public class SampleAppController {
@@ -33,6 +33,19 @@ public class SampleAppController {
 		Item i2 = sampleService.getClassifiedItem(newItem);
 
 		return i2;
+	}
+	
+	@RequestMapping(value = "/zemljiste", method = RequestMethod.GET, produces = "application/json")
+	public Zemljiste getQuestionsZemljiste(@RequestParam(required = true) String id,
+			@RequestParam(required = true) double phVrednost, @RequestParam(required = true) double kalcijumKarbonat) {
+
+		Zemljiste newZemljiste = new Zemljiste(Long.parseLong(id), phVrednost, kalcijumKarbonat);
+
+		log.debug("Zemljiste request received for: " + newZemljiste);
+
+		Zemljiste z2 = sampleService.getClassifiedZemljiste(newZemljiste);
+
+		return z2;
 	}
 	
 	

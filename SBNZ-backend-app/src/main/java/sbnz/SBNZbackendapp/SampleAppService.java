@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sbnz.SBNZbackendapp.facts.Item;
+import sbnz.SBNZbackendapp.facts.Zemljiste;
 
 
 @Service
@@ -29,5 +30,13 @@ public class SampleAppService {
 		kieSession.fireAllRules();
 		kieSession.dispose();
 		return i;
+	}
+	
+	public Zemljiste getClassifiedZemljiste(Zemljiste z) {
+		KieSession kieSession = kieContainer.newKieSession();
+		kieSession.insert(z);
+		kieSession.fireAllRules();
+		kieSession.dispose();
+		return z;
 	}
 }

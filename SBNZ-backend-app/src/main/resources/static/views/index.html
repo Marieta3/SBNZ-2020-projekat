@@ -24,11 +24,11 @@
 			$("form").submit(event=>{
 				event.preventDefault();
 				let f = event.target;
-				$.get("/item?id=" + f.id.value + "&name=" + f.name.value + "&cost=" + f.cost.value + "&salePrice=" + f.salePrice.value,
+				$.get("/zemljiste?id=" + f.id.value + "&phVrednost=" + f.phVrednost.value + "&kalcijumKarbonat=" + f.kalcijumKarbonat.value,
 					(data, status)=>{
 						console.log(data);
 						console.log(status);
-						$(".jumbotron").append(`<h3>Item klasifikovan kao ${data.category}!</h3>`)
+						$(".jumbotron").append(`<h3>Zemljiste klasifikovano kao ${data.phCategory} i ${data.calcCategory}</h3>`)
 									   .append(`<p>${JSON.stringify(data)}</p>`);
 					})
 			});
@@ -38,7 +38,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<h3>Dodavanje nove činjenice:</h3>
+			<h3>Unesite podatke zemljista:</h3>
 		</div>
 		<div class="row">
 			
@@ -48,16 +48,12 @@
 						class="form-control" id="id" name="id">
 				</div>
 				<div class="form-group">
-					<label for="name">Name:</label> <input type="text"
-						class="form-control" id="name" name="name">
+					<label for="phVrednost">pH vrednost:</label> <input type="number" step="any"
+						class="form-control" id="phVrednost" name="phVrednost">
 				</div>
 				<div class="form-group">
-					<label for="cost">Cost:</label> <input type="number"
-						class="form-control" id="cost" name="cost">
-				</div>
-				<div class="form-group">
-					<label for="salePrice">Sale Price:</label> <input type="number"
-						class="form-control" id="salePrice" name="salePrice">
+					<label for="kalcijumKarbonat">Kalcijum Karbonat:</label> <input type="number" step="any"
+						class="form-control" id="kalcijumKarbonat" name="kalcijumKarbonat">
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>

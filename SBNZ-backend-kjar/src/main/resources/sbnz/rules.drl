@@ -1,6 +1,6 @@
 //created on: May 17, 2020
 package sbnz
-
+import sbnz.SBNZbackendapp.facts.Zemljiste;
 //list any import classes here.
 
 
@@ -10,20 +10,22 @@ package sbnz
 
 
 
-rule "Your First Rule"
+rule "Klasifikovanje zemljista kao slabo kiselo"
 
     when
-        //conditions
+        $z: Zemljiste( phVrednost >= 5.51 && phVrednost <= 6.5 , phCategory == phCategory.NA )
     then
-        //actions
+        $z.setPhCategory(Zemljiste.phCategory.SLABO_KISELO);
+        update($z);
 
 end
 
-rule "Your Second Rule"
+rule "Klasifikovanje zemljista kao slabo karbonatno"
     //include attributes such as "salience" here...
     when
-        //conditions
+        $z: Zemljiste( kalcijumKarbonat > 0, kalcijumKarbonat <= 5 , calcCategory == calcCategory.NA )
     then
-        //actions
+        $z.setCalcCategory(Zemljiste.calcCategory.SLABO_KARBONATNO);
+        update($z);
 
 end
