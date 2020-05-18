@@ -21,6 +21,9 @@ public class Zemljiste {
     private Double kalcijumKarbonat;
     private phCategory phCategory;
     private calcCategory calcCategory;
+    
+    private String voce;
+    
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +50,7 @@ public class Zemljiste {
 		this.kalcijumKarbonat = kalcijumKarbonat;
 		this.phCategory = phCategory.NA;
 		this.calcCategory = calcCategory.NA;
+		this.voce = "unknown";
 	}
 	
 	public Zemljiste() {
@@ -104,6 +108,12 @@ public class Zemljiste {
 		if (phCategory != other.phCategory)
 			return false;
 		return true;
+	}
+	public String getVoce() {
+		return voce;
+	}
+	public void setVoce(String voce) {
+		this.voce = voce;
 	}
 	public Double getPhVrednost() {
 		return phVrednost;

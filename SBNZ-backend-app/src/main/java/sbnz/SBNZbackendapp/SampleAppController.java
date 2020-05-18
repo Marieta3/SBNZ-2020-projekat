@@ -36,10 +36,9 @@ public class SampleAppController {
 	}
 	
 	@RequestMapping(value = "/zemljiste", method = RequestMethod.GET, produces = "application/json")
-	public Zemljiste getQuestionsZemljiste(@RequestParam(required = true) String id,
-			@RequestParam(required = true) double phVrednost, @RequestParam(required = true) double kalcijumKarbonat) {
+	public Zemljiste getQuestionsZemljiste(@RequestParam(required = true) double phVrednost, @RequestParam(required = true) double kalcijumKarbonat) {
 
-		Zemljiste newZemljiste = new Zemljiste(Long.parseLong(id), phVrednost, kalcijumKarbonat);
+		Zemljiste newZemljiste = new Zemljiste(phVrednost, kalcijumKarbonat);
 
 		log.debug("Zemljiste request received for: " + newZemljiste);
 

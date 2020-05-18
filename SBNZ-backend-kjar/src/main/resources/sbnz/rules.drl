@@ -1,6 +1,7 @@
 //created on: May 17, 2020
 package sbnz
 import sbnz.SBNZbackendapp.facts.Zemljiste;
+import sbnz.SBNZbackendapp.facts.Voce;
 //list any import classes here.
 
 
@@ -11,7 +12,7 @@ import sbnz.SBNZbackendapp.facts.Zemljiste;
 
 
 rule "Klasifikovanje zemljista kao slabo kiselo"
-
+	agenda-group "classify"
     when
         $z: Zemljiste( phVrednost >= 5.51 && phVrednost <= 6.5 , phCategory == phCategory.NA )
     then
@@ -21,7 +22,7 @@ rule "Klasifikovanje zemljista kao slabo kiselo"
 end
 
 rule "Klasifikovanje zemljista kao alkalno"
-
+	agenda-group "classify"
     when
         $z: Zemljiste( phVrednost > 7.2, phCategory == phCategory.NA )
     then
@@ -31,7 +32,7 @@ rule "Klasifikovanje zemljista kao alkalno"
 end
 
 rule "Klasifikovanje zemljista kao neutralno"
-
+	agenda-group "classify"
     when
         $z: Zemljiste( phVrednost >= 6.51 && phVrednost <= 7.2 , phCategory == phCategory.NA )
     then
@@ -41,7 +42,7 @@ rule "Klasifikovanje zemljista kao neutralno"
 end
 
 rule "Klasifikovanje zemljista kao kiselo"
-
+	agenda-group "classify"
     when
         $z: Zemljiste( phVrednost >= 4.51 && phVrednost <= 5.5 , phCategory == phCategory.NA )
     then
@@ -51,7 +52,7 @@ rule "Klasifikovanje zemljista kao kiselo"
 end
 
 rule "Klasifikovanje zemljista kao jako kiselo"
-
+	agenda-group "classify"
     when
         $z: Zemljiste( phVrednost <= 4.5 , phCategory == phCategory.NA )
     then
@@ -61,7 +62,7 @@ rule "Klasifikovanje zemljista kao jako kiselo"
 end
 
 rule "Klasifikovanje zemljista kao slabo karbonatno"
-    //include attributes such as "salience" here...
+    agenda-group "classify"
     when
         $z: Zemljiste( kalcijumKarbonat > 0, kalcijumKarbonat <= 5 , calcCategory == calcCategory.NA )
     then
@@ -71,7 +72,7 @@ rule "Klasifikovanje zemljista kao slabo karbonatno"
 end
 
 rule "Klasifikovanje zemljista kao beskarbonatno"
-    //include attributes such as "salience" here...
+    agenda-group "classify"
     when
         $z: Zemljiste( kalcijumKarbonat == 0 , calcCategory == calcCategory.NA )
     then
@@ -81,7 +82,7 @@ rule "Klasifikovanje zemljista kao beskarbonatno"
 end
 
 rule "Klasifikovanje zemljista kao srenje karbonatno"
-    //include attributes such as "salience" here...
+    agenda-group "classify"
     when
         $z: Zemljiste( kalcijumKarbonat > 5, kalcijumKarbonat <= 10 , calcCategory == calcCategory.NA )
     then
@@ -91,9 +92,9 @@ rule "Klasifikovanje zemljista kao srenje karbonatno"
 end
 
 rule "Klasifikovanje zemljista kao jako karbonatno"
-    //include attributes such as "salience" here...
+    agenda-group "classify"
     when
-        $z: Zemljiste( kalcijumKarbonat < 10 , calcCategory == calcCategory.NA )
+        $z: Zemljiste( kalcijumKarbonat > 10 , calcCategory == calcCategory.NA )
     then
         $z.setCalcCategory(Zemljiste.calcCategory.JAKO_KARBONATNO);
         update($z);
@@ -102,10 +103,11 @@ end
 
 rule "Jabuka"
 	when
-		$z: Zemljiste(phCategory == phCategory.SLABO_KISELO)
+		$z: Zemljiste(phCategory == phCategory.SLABO_KISELO && calcCategory == calcCategory.SLABO_KARBONATNO)
 	then
 		System.out.println("");
 		System.out.println("Jabuka");
 		System.out.println("");
-		
+		$z.setVoce("Jabuka");
+		update($z);
 end

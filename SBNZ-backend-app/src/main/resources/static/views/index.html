@@ -24,11 +24,12 @@
 			$("form").submit(event=>{
 				event.preventDefault();
 				let f = event.target;
-				$.get("/zemljiste?id=" + f.id.value + "&phVrednost=" + f.phVrednost.value + "&kalcijumKarbonat=" + f.kalcijumKarbonat.value,
+				$.get("/zemljiste?phVrednost=" + f.phVrednost.value + "&kalcijumKarbonat=" + f.kalcijumKarbonat.value,
 					(data, status)=>{
 						console.log(data);
 						console.log(status);
 						$(".jumbotron").append(`<h3>Zemljiste klasifikovano kao ${data.phCategory} i ${data.calcCategory}</h3>`)
+									   .append(`<h3>Voce: ${data.voce}</h3>`)
 									   .append(`<p>${JSON.stringify(data)}</p>`);
 					})
 			});
@@ -43,10 +44,7 @@
 		<div class="row">
 			
 			<form action="/item" method="get">
-				<div class="form-group">
-					<label for="id">Id:</label> <input type="number"
-						class="form-control" id="id" name="id">
-				</div>
+				
 				<div class="form-group">
 					<label for="phVrednost">pH vrednost:</label> <input type="number" step="any"
 						class="form-control" id="phVrednost" name="phVrednost">

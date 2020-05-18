@@ -35,6 +35,7 @@ public class SampleAppService {
 	public Zemljiste getClassifiedZemljiste(Zemljiste z) {
 		KieSession kieSession = kieContainer.newKieSession();
 		kieSession.insert(z);
+		kieSession.getAgenda().getAgendaGroup("classify").setFocus();
 		kieSession.fireAllRules();
 		kieSession.dispose();
 		return z;
