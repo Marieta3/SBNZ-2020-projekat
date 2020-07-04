@@ -1,0 +1,13 @@
+<mat-toolbar  color="blue">
+    <mat-toolbar-row class="ts-u-display--flex ts-u-justify--space-between">
+      <span *ngIf="isUserLoggedIn === false">
+      <button mat-button routerLink="register"> Register </button>
+    </span>
+      <span *ngIf="isUserLoggedIn">
+        <button mat-button routerLink="certificates/all"> Certificates </button>
+        <button mat-button routerLink="certificateRequests/all"> Requests </button>
+        <button mat-button (click)="logout()">Log Out</button>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
