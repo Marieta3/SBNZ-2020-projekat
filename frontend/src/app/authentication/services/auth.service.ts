@@ -7,6 +7,7 @@ import { LoginModel } from 'src/app/models/login.model';
 import { map } from 'rxjs/operators';
 import { async } from '@angular/core/testing';
 import * as jwt_decode from 'jwt-decode';
+import { RegisterModel } from 'src/app/models/register.model';
 
 const ENDPOINTS = {
   LOGIN: '/auth/login',
@@ -36,6 +37,13 @@ export class AuthService extends BaseService {
         localStorage.setItem('user', JSON.stringify(user));
         this.autoLogOut();
         this.router.navigateByUrl('certificates/all');
+      });
+  }
+
+  register(userData: RegisterModel): void{
+    this.http.post(`${this.baseUrl}${ENDPOINTS.REGISTER}`, userData)
+      .subscribe(result => {
+        this.router.navigateByUrl('login');
       });
   }
 

@@ -9,9 +9,9 @@
         <td mat-cell *matCellDef="let element; let i = index;">{{i}}</td>
       </ng-container>
   
-    <ng-container matColumnDef="holderName">
+    <ng-container matColumnDef="fruitName">
         <th mat-header-cell *matHeaderCellDef >Name</th>
-        <td mat-cell *matCellDef="let organisationData">{{organisationData.holderName}}</td>
+        <td mat-cell *matCellDef="let fruit">{{fruit.naziv}}</td>
     </ng-container>
 
     <ng-container matColumnDef="organisation">

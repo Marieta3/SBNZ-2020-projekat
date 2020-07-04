@@ -2,6 +2,7 @@ import { Deserializable } from './deserializable.model';
 export class User implements Deserializable {
   token: string;
   name: string;
+  lastName: string;
   email: string;
   username: string;
   password: string;

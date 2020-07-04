@@ -2,6 +2,7 @@
     <mat-toolbar-row class="ts-u-display--flex ts-u-justify--space-between">
       <span *ngIf="isUserLoggedIn === false">
       <button mat-button routerLink="register"> Register </button>
+      <button mat-button routerLink="login"> Login </button>
     </span>
       <span *ngIf="isUserLoggedIn">
         <button mat-button routerLink="certificates/all"> Certificates </button>

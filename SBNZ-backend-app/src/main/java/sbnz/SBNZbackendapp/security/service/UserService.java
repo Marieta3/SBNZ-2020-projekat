@@ -1,7 +1,9 @@
 package sbnz.SBNZbackendapp.security.service;
 
 import sbnz.SBNZbackendapp.config.WebSecurityConfig;
+import sbnz.SBNZbackendapp.models.RegisteredUser;
 import sbnz.SBNZbackendapp.models.User;
+import sbnz.SBNZbackendapp.models.DTO.RegistrationUserDTO;
 import sbnz.SBNZbackendapp.security.domain.Authority;
 import sbnz.SBNZbackendapp.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,6 +37,27 @@ public class UserService implements UserDetailsService {
     @Autowired
     private WebSecurityConfig webSecurityConfig;
     
+    public RegisteredUser registerUser(RegistrationUserDTO dto) {
+    	RegisteredUser user = new RegisteredUser();
+    	user.setName(dto.getName());
+    	user.setLastName(dto.getLastName());
+    	user.setConfirmed(true);
+    	user.setEmail(dto.getEmail());
+    	user.setEnabled(true);
+    	user.setUsername(dto.getUsername());
+    	List<Authority> authorities = new ArrayList<>();
+		Authority a = new Authority();
+		a.setName("ROLE_USER");
+		authorities.add(a);
+		user.setAuthorities(authorities);
+		user.setPassword(webSecurityConfig.passwordEncoder().encode(dto.getPassword()));
+		
+		return (RegisteredUser) save(user);
+    }
+    
+    public User save(User user){
+		return userRepository.save(user);
+	}
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserDetails userDetails = userRepository.findByUsername(username);

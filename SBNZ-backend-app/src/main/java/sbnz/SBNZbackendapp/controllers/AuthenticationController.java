@@ -1,6 +1,8 @@
 package sbnz.SBNZbackendapp.controllers;
 
+import sbnz.SBNZbackendapp.models.RegisteredUser;
 import sbnz.SBNZbackendapp.models.User;
+import sbnz.SBNZbackendapp.models.DTO.RegistrationUserDTO;
 import sbnz.SBNZbackendapp.models.converters.UserConverter;
 import sbnz.SBNZbackendapp.security.TokenUtils;
 import sbnz.SBNZbackendapp.security.auth.JwtAuthenticationRequest;
@@ -67,18 +69,14 @@ public class AuthenticationController {
         return ResponseEntity.ok( userConverter.toDTO(user, tokenUtils.generateToken(user.getUsername(), role)));
     }
 
-//    @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity register(@RequestBody RegistrationUserDTO userDTO){
-//        RegistrationUserDTO dto = null;
-//        try {
-//            dto = new RegistrationUserDTO(userService.registerUser(userDTO));
-//        }catch (UsernameException e){
-//            return ResponseEntity.badRequest().body("Username is taken");
-//        }catch (EmailException e){
-//            return ResponseEntity.badRequest().body("Email is taken");
-//        }
-//        return ResponseEntity.ok(dto);
-//    }
+    @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> register(@RequestBody RegistrationUserDTO userDTO){
+        RegisteredUser new_user = null;
+        
+        new_user = userService.registerUser(userDTO);
+        
+        return ResponseEntity.ok(new_user);
+    }
 
     @GetMapping(value = "/testAdmin")
     @PreAuthorize("hasRole('ADMIN')")

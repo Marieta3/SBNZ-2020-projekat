@@ -7,8 +7,18 @@ public class UserDTO {
     private Long id;
 
     private String name;
+    
+    private String lastName;
 
-    private String email;
+    public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	private String email;
 
     private String username;
 

@@ -17,10 +17,12 @@ import { HttpInterceptorService } from './shared/services/http-interceptor.servi
 import { CertificatesModule } from './certificates/certificates.module';
 import { CertificateRequestService } from './certificate-request/services/certificate-request.service';
 import { CertificateRequestModule } from './certificate-request/certificate-request.module';
+import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-all-fruit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListAllFruitComponent,
   ],
   imports: [
     BrowserModule,

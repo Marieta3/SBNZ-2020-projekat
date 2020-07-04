@@ -40,7 +40,7 @@ export class ListAllCertifiacesComponent implements OnInit {
   }
 
   getDisplayedColumns(){
-    return ['index', 'holderName', 'organisation', 'organisationUnit', 'country', 'uniqueIdentifier', 'delete'];
+    return ['index', 'fruitName', 'organisation', 'organisationUnit', 'country', 'uniqueIdentifier', 'delete'];
   }
 
   redirectToAddNewPage() {

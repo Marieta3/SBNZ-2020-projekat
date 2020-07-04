@@ -23,8 +23,19 @@ public abstract class User implements UserDetails {
 
     @Column
     private String name;
+    
+    @Column
+    private String lastName;
 
-    @Column(unique = true)
+    public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Column(unique = true)
     private String email;
 
     @Column(unique = true)
@@ -66,9 +77,10 @@ public abstract class User implements UserDetails {
         super();
     }
 
-    public User(String name, String email, String username, String password) {
+    public User(String name, String lastName, String email, String username, String password) {
         super();
         this.name = name;
+        this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
