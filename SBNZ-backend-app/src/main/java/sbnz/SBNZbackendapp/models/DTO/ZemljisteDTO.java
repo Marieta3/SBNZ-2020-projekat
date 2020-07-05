@@ -9,6 +9,8 @@ public class ZemljisteDTO {
     private double kalijum;
     private double humus;
     private String region;
+    private String voce;
+    private int poklapanja;
     
 	public String getRegion() {
 		return region;

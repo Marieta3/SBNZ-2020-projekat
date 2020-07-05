@@ -14,9 +14,6 @@ import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { ToastrModule } from 'ngx-toastr';
 import { MainModule } from './main/main.module';
 import { HttpInterceptorService } from './shared/services/http-interceptor.service';
-import { CertificatesModule } from './certificates/certificates.module';
-import { CertificateRequestService } from './certificate-request/services/certificate-request.service';
-import { CertificateRequestModule } from './certificate-request/certificate-request.module';
 import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-all-fruit.component';
 
 @NgModule({
@@ -43,9 +40,7 @@ import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-al
     BootstrapModule,
     AuthenticationModule,
     MainModule,
-    BrowserAnimationsModule,
-    CertificatesModule,
-    CertificateRequestModule
+    BrowserAnimationsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
