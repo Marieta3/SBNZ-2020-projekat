@@ -111,3 +111,13 @@ rule "Jabuka"
 		$z.setVoce("Jabuka");
 		update($z);
 end
+
+rule "Predlaganje sorte voca na osnovu unetih podataka"
+	
+	when
+		$v: Voce($naziv: name)
+		$z: Zemljiste()
+		// provera yadovoljenosti uslova
+	then
+
+end

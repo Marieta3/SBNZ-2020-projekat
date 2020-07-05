@@ -8,5 +8,5 @@ import sbnz.SBNZbackendapp.facts.Region;
 
 public interface RegionRepository extends JpaRepository<Region, Long>{
 
-	Optional<Region> findOneByName(String name);
+	Optional<Region> findOneByNaziv(String naziv);
 }

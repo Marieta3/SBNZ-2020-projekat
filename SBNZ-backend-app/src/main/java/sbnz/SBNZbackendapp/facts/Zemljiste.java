@@ -21,11 +21,18 @@ public class Zemljiste {
     private Double kalcijumKarbonat;
     private phCategory phCategory;
     private calcCategory calcCategory;
+    private Region region;
     
     private String voce;
     
 	public Long getId() {
 		return id;
+	}
+	public Region getRegion() {
+		return region;
+	}
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 	public void setId(Long id) {
 		this.id = id;

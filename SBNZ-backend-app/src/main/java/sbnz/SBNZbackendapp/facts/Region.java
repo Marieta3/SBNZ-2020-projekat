@@ -14,32 +14,24 @@ public class Region {
 	private Long id;
 	
 	@Column
-	private String name;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Region() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "Region [id=" + id + ", name=" + name + "]";
-	}
+	private String naziv;
+	
+	@Column
+	private double nadmorskaVisina;
+	
+	@Column 
+	private double prosecnaGodisnjaTemperatura;
+	
+	@Column
+	private double minTemperatura;
+	
+	@Column
+	private double maxTemperatura;
+	
+	@Column
+	private double kolicinaPadavina;
+	
+	
 	
 	
 }
