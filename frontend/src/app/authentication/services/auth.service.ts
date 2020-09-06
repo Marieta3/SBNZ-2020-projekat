@@ -25,13 +25,13 @@ export class AuthService extends BaseService {
 
   constructor(private http: HttpClient, private router: Router) {
     super();
-    this.activeUser = JSON.parse( localStorage.getItem('user'));
+    this.activeUser = JSON.parse(localStorage.getItem('user'));
   }
 
-  login(userData: LoginModel) : void {
+  login(userData: LoginModel): void {
     this.http.post(`${this.baseUrl}${ENDPOINTS.LOGIN}`, userData)
       .pipe(
-        map((res: Response) =>  new User().deserialize(res))
+        map((res: Response) => new User().deserialize(res))
       ).subscribe((user: User) => {
         this.activeUser = user;
         localStorage.setItem('user', JSON.stringify(user));
@@ -41,7 +41,7 @@ export class AuthService extends BaseService {
       });
   }
 
-  register(userData: RegisterModel): void{
+  register(userData: RegisterModel): void {
     this.http.post(`${this.baseUrl}${ENDPOINTS.REGISTER}`, userData)
       .subscribe(result => {
         this.router.navigateByUrl('login');
@@ -70,16 +70,16 @@ export class AuthService extends BaseService {
     );
   }
 
-  isLogedIn(){
+  isLogedIn() {
     const user: any = JSON.parse(localStorage.getItem('user'));
-    if(user == null || this.activeUser == null){
+    if (user == null || this.activeUser == null) {
       return false;
     }
     this.activeUser = user;
     const jwt = jwt_decode(this.activeUser.token);
     // console.log(jwt.role);
     const exp = (jwt.exp * 1000) - (new Date()).getTime();
-    if (exp < 0){
+    if (exp < 0) {
       this.activeUser = null;
       localStorage.removeItem('user');
       localStorage.removeItem('token');
@@ -88,10 +88,30 @@ export class AuthService extends BaseService {
     return this.activeUser != null;
   }
 
-  isAdmin(){
+  // isAdmin(){
+  //   const user: any = JSON.parse(localStorage.getItem('user'));
+  //   const actUser: User = user;
+  //   const jwt = jwt_decode(actUser.token);
+  //   return jwt.role === 'ROLE_ADMIN';
+  // }
+
+  isAdmin() {
     const user: any = JSON.parse(localStorage.getItem('user'));
     const actUser: User = user;
+    if (user == null || this.activeUser == null || actUser == null) {
+      return false;
+    }
     const jwt = jwt_decode(actUser.token);
     return jwt.role === 'ROLE_ADMIN';
+  }
+
+  isUser() {
+    const user: any = JSON.parse(localStorage.getItem('user'));
+    const actUser: User = user;
+    if (user == null || this.activeUser == null || actUser == null) {
+      return false;
+    }
+    const jwt = jwt_decode(actUser.token);
+    return jwt.role === 'ROLE_USER';
   }
 }
