@@ -16,14 +16,48 @@ public class Zemljiste {
     private static final long serialVersionUID = 1L;
     
     private Long id;
-    //private String name;
+    
+    //numericki podaci
     private Double phVrednost;
     private Double kalcijumKarbonat;
+    private Double azot;
+    private Double fosfor;
+    private Double kalijum;
+    private Double humus;
+    
+    //kategorije
     private phCategory phCategory;
     private calcCategory calcCategory;
+    
+    //region
     private Region region;
     
     private String voce;
+    
+    public Double getAzot() {
+		return azot;
+	}
+	public void setAzot(Double azot) {
+		this.azot = azot;
+	}
+	public Double getFosfor() {
+		return fosfor;
+	}
+	public void setFosfor(Double fosfor) {
+		this.fosfor = fosfor;
+	}
+	public Double getKalijum() {
+		return kalijum;
+	}
+	public void setKalijum(Double kalijum) {
+		this.kalijum = kalijum;
+	}
+	public Double getHumus() {
+		return humus;
+	}
+	public void setHumus(Double humus) {
+		this.humus = humus;
+	}
     
 	public Long getId() {
 		return id;

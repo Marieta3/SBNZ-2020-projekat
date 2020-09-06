@@ -14,6 +14,11 @@ INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (1, 1);
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (2, 1);
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (3, 2);
 
-INSERT INTO VOCE(id, name, nadmorska_visina, opis) VALUES (1, "Jabuka", 200, "Jabuka je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.")
-INSERT INTO VOCE(id, name, nadmorska_visina, opis) VALUES (2, "Kruska", 200, "Kruska je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.")
-INSERT INTO VOCE(id, name, nadmorska_visina, opis) VALUES (3, "Visnja", 200, "Visnja je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.")
+INSERT INTO VOCE(id, name, nadmorska_visina, opis, kolicina_padavina, max_temperatura, min_temperatura, prosecna_godisnja_temperatura, calc_category, ph_category) VALUES (1, "Jabuka", 200, "Jabuka je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.", 300, 30, -5, 15, 2, 4);
+INSERT INTO VOCE(id, name, nadmorska_visina, opis, kolicina_padavina, max_temperatura, min_temperatura, prosecna_godisnja_temperatura, calc_category, ph_category) VALUES (2, "Kruska", 200, "Kruska je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.", 250, 32, 0, 14, 1, 2);
+INSERT INTO VOCE(id, name, nadmorska_visina, opis, kolicina_padavina, max_temperatura, min_temperatura, prosecna_godisnja_temperatura, calc_category, ph_category) VALUES (3, "Visnja", 200, "Visnja je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.", 100, 25, -10, 12, 0, 3);
+
+
+INSERT INTO REGION(id, naziv, nadmorska_visina, kolicina_padavina, max_temperatura, min_temperatura, prosecna_godisnja_temperatura) VALUES (1, "Srem", 200, 300, 30, -5, 15);
+INSERT INTO REGION(id, naziv, nadmorska_visina, kolicina_padavina, max_temperatura, min_temperatura, prosecna_godisnja_temperatura) VALUES (2, "Banat", 150, 250, 32, 0, 14);
+INSERT INTO REGION(id, naziv, nadmorska_visina, kolicina_padavina, max_temperatura, min_temperatura, prosecna_godisnja_temperatura) VALUES (3, "Backa", 100, 555, 25, -10, 12);

@@ -17,6 +17,11 @@ public class ZemljisteConverter {
 	public Zemljiste toDTO(ZemljisteDTO dto) {
 		Zemljiste z = new Zemljiste();
 		z.setKalcijumKarbonat(dto.getKalcijumKarbonat());
+		z.setPhVrednost(dto.getPhVrednost());
+		z.setAzot(dto.getAzot());
+		z.setFosfor(dto.getFosfor());
+		z.setHumus(dto.getHumus());
+		z.setKalijum(dto.getKalijum());
 		
 		Region r = regionService.findOneByNaziv(dto.getRegion());
 		z.setRegion(r);
