@@ -13,3 +13,7 @@ INSERT INTO AUTHORITY (id, name) VALUES (2,"ROLE_USER");
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (1, 1);
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (2, 1);
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (3, 2);
+
+INSERT INTO VOCE(id, name, nadmorska_visina, opis) VALUES (1, "Jabuka", 200, "Jabuka je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.")
+INSERT INTO VOCE(id, name, nadmorska_visina, opis) VALUES (2, "Kruska", 200, "Kruska je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.")
+INSERT INTO VOCE(id, name, nadmorska_visina, opis) VALUES (3, "Visnja", 200, "Visnja je voce koje raste na plodnom tlu. Ima vise sorti. Voli vodu.")

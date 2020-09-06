@@ -18,6 +18,10 @@ public class VoceService {
 		return voceRepository.findOneByName(name).orElse(null);
 	}
 	
+	public Voce findOneById(Long id) {
+		return voceRepository.findById(id).orElse(null);
+	}
+	
 	public List<Voce> findAll(){
 		return voceRepository.findAll();
 	}

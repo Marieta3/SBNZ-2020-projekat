@@ -15,11 +15,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { MainModule } from './main/main.module';
 import { HttpInterceptorService } from './shared/services/http-interceptor.service';
 import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-all-fruit.component';
+import { FruitDetailsComponent } from './fruit/components/fruit-details/fruit-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListAllFruitComponent,
+    FruitDetailsComponent
   ],
   imports: [
     BrowserModule,

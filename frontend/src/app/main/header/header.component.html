@@ -3,10 +3,10 @@
       <span *ngIf="isUserLoggedIn === false">
       <button mat-button routerLink="register"> Register </button>
       <button mat-button routerLink="login"> Login </button>
-    </span>
+      <button mat-button routerLink="fruit"> Fruit </button>
+      </span>
       <span *ngIf="isUserLoggedIn">
-        <button mat-button routerLink="fruit"> Fruit </button>
-        <button mat-button routerLink="fruit"> Fruit </button>
+        
         <button mat-button (click)="logout()">Log Out</button>
       </span>
     </mat-toolbar-row>

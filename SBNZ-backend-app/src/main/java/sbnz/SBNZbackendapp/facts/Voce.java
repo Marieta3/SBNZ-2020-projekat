@@ -19,6 +19,9 @@ public class Voce {
 	@Column
 	private double nadmorskaVisina;
 	
+	@Column
+	private String opis;
+	
 	
 	@Override
 	public String toString() {
@@ -27,13 +30,27 @@ public class Voce {
 	public Voce() {
 		super();
 	}
-	public Voce(Long id, String name) {
+	public Voce(Long id, String name, String opis) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.opis = opis;
 	}
 	public Voce(String name) {
-		this(null, name);
+		this.name = name;
+		this.id = null;
+	}
+	public double getNadmorskaVisina() {
+		return nadmorskaVisina;
+	}
+	public void setNadmorskaVisina(double nadmorskaVisina) {
+		this.nadmorskaVisina = nadmorskaVisina;
+	}
+	public String getOpis() {
+		return opis;
+	}
+	public void setOpis(String opis) {
+		this.opis = opis;
 	}
 	public Long getId() {
 		return id;

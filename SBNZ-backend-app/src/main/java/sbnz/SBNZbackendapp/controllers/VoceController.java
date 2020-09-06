@@ -24,15 +24,26 @@ public class VoceController {
 	private VoceService voceService;
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	public ResponseEntity<?> getAll(){
 		return ResponseEntity.ok(voceService.findAll());
 	}
 	
-	@GetMapping(value = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+	@GetMapping(value = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 	public ResponseEntity<?> getOneByName(@PathVariable(value = "name") String name){
 		Voce voce = voceService.findOneByName(name);
+		if(voce!=null) {
+			return ResponseEntity.ok(voce);
+		}
+		return ResponseEntity.badRequest().build();
+		
+	}
+	
+	@GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+	public ResponseEntity<?> getOneById(@PathVariable(value = "id") Long id){
+		Voce voce = voceService.findOneById(id);
 		if(voce!=null) {
 			return ResponseEntity.ok(voce);
 		}
