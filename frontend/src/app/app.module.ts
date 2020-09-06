@@ -16,12 +16,14 @@ import { MainModule } from './main/main.module';
 import { HttpInterceptorService } from './shared/services/http-interceptor.service';
 import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-all-fruit.component';
 import { FruitDetailsComponent } from './fruit/components/fruit-details/fruit-details.component';
+import { AddFruitComponent } from './fruit/components/add-fruit/add-fruit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListAllFruitComponent,
-    FruitDetailsComponent
+    FruitDetailsComponent,
+    AddFruitComponent
   ],
   imports: [
     BrowserModule,

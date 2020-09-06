@@ -3,12 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-all-fruit.component';
 import { FruitDetailsComponent } from './fruit/components/fruit-details/fruit-details.component';
+import { AddFruitComponent } from './fruit/components/add-fruit/add-fruit.component';
+import { RoleGuard } from './shared/guards/role.guard';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'fruit', component: ListAllFruitComponent},
-  {path: 'fruit/details/:id', component: FruitDetailsComponent}
+  {path: 'fruit/details/:id', component: FruitDetailsComponent},
+  {
+    path: 'fruit/add',
+    component: AddFruitComponent,
+    canActivate: [RoleGuard],
+    data: {expectedRoles: 'ROLE_ADMIN'}
+  }
 ];
 
 @NgModule({

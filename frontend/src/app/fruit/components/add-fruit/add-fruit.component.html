@@ -1,0 +1,27 @@
+
+
+    <form [formGroup]="addFruitForm" (ngSubmit)="onAddFruitSubmit()" novalidate>
+        <div class="form-container form-group"> 
+
+            <mat-form-field  appearance="outline">
+              <input id="name"
+                     matInput 
+                     formControlName="name"
+                     placeholder="Enter fruit name" />
+            </mat-form-field>
+
+            <mat-form-field style="width: 600px;" appearance="outline">
+                <textarea id="opis"
+                       matInput rows="10"
+                       formControlName="opis"
+                       placeholder="Enter fruit description" ></textarea>
+              </mat-form-field>
+  
+          <br/>
+            <button mat-button type="submit" 
+                    id="submit"
+                    class="mat-raised-button mat-primary" 
+                    [disabled]="!addFruitForm.valid">Submit</button>
+        </div>
+      </form>
+  

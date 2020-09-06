@@ -16,7 +16,7 @@ export class FruitDetailsComponent implements OnInit {
     private router: Router,
     private fruitService: FruitService
   ) { 
-    this.fruit = new Fruit();
+    this.fruit = new Fruit('', '');
     this.fruit.name = '';
     this.fruit.opis = '';
   }

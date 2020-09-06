@@ -4,6 +4,11 @@ export class Fruit implements Deserializable {
   id: number;
   opis: string;
 
+  constructor(name: string, opis: string) {
+    this.name = name;
+    this.opis = opis;
+  }
+
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

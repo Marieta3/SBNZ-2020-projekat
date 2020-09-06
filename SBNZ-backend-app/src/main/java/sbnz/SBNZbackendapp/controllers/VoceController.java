@@ -54,8 +54,11 @@ public class VoceController {
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> addVoce(@RequestBody Voce voce) {
-		
-		voceService.save(voce);
-		return ResponseEntity.ok("Successfully added fruit");
+		System.out.println("controller");
+		System.out.println(voce);
+		Voce added = voceService.save(voce);
+		System.out.println("added");
+		System.out.println(added);
+		return ResponseEntity.ok(added);
 	}
 }

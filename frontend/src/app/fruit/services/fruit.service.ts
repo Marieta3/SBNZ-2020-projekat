@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { BaseService } from 'src/app/shared/services/base.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Fruit } from 'src/app/models/fruit.model';
 
 const ENDPOINTS = {
   FRUIT: '/voce'
@@ -17,7 +18,7 @@ export class FruitService extends BaseService{
   httpOptions = {
     headers: new HttpHeaders({
       // 'Content-Type':  'application/xml',
-      // 'Response-Type': 'application/json',
+      'Response-Type': 'text',
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
   };
@@ -36,5 +37,14 @@ export class FruitService extends BaseService{
     console.log('details');
     console.log(id);
     return this.http.get(`${this.baseUrl}${ENDPOINTS.FRUIT}` + '/id/' + id);
+  }
+
+  addFruit(fruit: Fruit): void{
+    this.http.post(`${this.baseUrl}${ENDPOINTS.FRUIT}` , fruit, this.httpOptions)
+      .subscribe(result => {
+        // console.log(result);
+        console.log('dodato voce');
+        this.router.navigateByUrl('fruit');
+      });
   }
 }

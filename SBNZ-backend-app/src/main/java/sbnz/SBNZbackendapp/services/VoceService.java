@@ -27,6 +27,8 @@ public class VoceService {
 	}
 	
 	public Voce save(Voce voce) {
+		System.out.println("service");
+		System.out.println(voce);
 		return voceRepository.save(voce);
 	}
 }

@@ -25,7 +25,7 @@ public class Voce {
 	
 	@Override
 	public String toString() {
-		return "Voce [id=" + id + ", name=" + name + "]";
+		return "Voce [id=" + id + ", name=" + name + ", nadmorskaVisina=" + nadmorskaVisina + ", opis=" + opis + "]";
 	}
 	public Voce() {
 		super();
