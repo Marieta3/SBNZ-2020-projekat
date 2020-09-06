@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import sbnz.SBNZbackendapp.facts.Region;
 import sbnz.SBNZbackendapp.facts.Zemljiste;
+import sbnz.SBNZbackendapp.facts.Zemljiste.calcCategory;
+import sbnz.SBNZbackendapp.facts.Zemljiste.phCategory;
 import sbnz.SBNZbackendapp.models.DTO.ZemljisteDTO;
 import sbnz.SBNZbackendapp.services.RegionService;
 
@@ -22,6 +24,9 @@ public class ZemljisteConverter {
 		z.setFosfor(dto.getFosfor());
 		z.setHumus(dto.getHumus());
 		z.setKalijum(dto.getKalijum());
+		
+		z.setCalcCategory(calcCategory.NA);
+		z.setPhCategory(phCategory.NA);
 		
 		Region r = regionService.findOneByNaziv(dto.getRegion());
 		z.setRegion(r);

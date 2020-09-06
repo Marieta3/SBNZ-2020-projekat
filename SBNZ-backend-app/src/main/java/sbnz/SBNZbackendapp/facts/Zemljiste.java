@@ -102,11 +102,13 @@ public class Zemljiste {
         this(null, phVrednost, kalcijumKarbonat);
     }
 	
+	
 	@Override
 	public String toString() {
-		return "Zemljiste [id=" + id + ", pHVrednost=" + phVrednost + ", kalcijumKarbonat="
-				+ kalcijumKarbonat + ", phKategorija=" + phCategory + ", kalcKarbKategorija=" + calcCategory
-				+ "]";
+		return "Zemljiste [id=" + id + ", phVrednost=" + phVrednost + ", kalcijumKarbonat=" + kalcijumKarbonat
+				+ ", azot=" + azot + ", fosfor=" + fosfor + ", kalijum=" + kalijum + ", humus=" + humus
+				+ ", phCategory=" + phCategory + ", calcCategory=" + calcCategory + ", region=" + region + ", voce="
+				+ voce + "]";
 	}
 	@Override
 	public int hashCode() {
