@@ -110,17 +110,7 @@ rule "Klasifikovanje zemljista kao jako karbonatno"
 
 end
 
-rule "Jabuka"
-	when
-		$z: Zemljiste(phCategory == phCategory.SLABO_KISELO && calcCategory == calcCategory.SLABO_KARBONATNO)
-	then
-		System.out.println("");
-		System.out.println("Jabuka");
-		System.out.println("");
-		$z.setVoce("Jabuka");
-		System.out.println($z);
-		update($z);
-end
+
 
 rule "Predlaganje sorte voca na osnovu unetih podataka - NIJE STROGO"
 	agenda-group "classify"

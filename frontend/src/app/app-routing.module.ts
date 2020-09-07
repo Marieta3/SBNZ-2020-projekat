@@ -5,6 +5,7 @@ import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-al
 import { FruitDetailsComponent } from './fruit/components/fruit-details/fruit-details.component';
 import { AddFruitComponent } from './fruit/components/add-fruit/add-fruit.component';
 import { RoleGuard } from './shared/guards/role.guard';
+import { AddZemljisteComponent } from './zemljiste/add-zemljiste/add-zemljiste.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,12 @@ const routes: Routes = [
     component: AddFruitComponent,
     canActivate: [RoleGuard],
     data: {expectedRoles: 'ROLE_ADMIN'}
+  },
+  {
+    path: 'zemljiste/add',
+    component: AddZemljisteComponent,
+    canActivate: [RoleGuard],
+    data: {expectedRoles: 'ROLE_USER'}
   }
 ];
 

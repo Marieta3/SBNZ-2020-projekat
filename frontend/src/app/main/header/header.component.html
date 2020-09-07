@@ -10,7 +10,7 @@
       <span *ngIf="isUserLoggedIn">
         <!-- <button mat-button routerLink="fruit"> Fruit </button> -->
         <button *ngIf="isAdmin" mat-button routerLink="fruit/add"> Add Fruit </button>
-        <button *ngIf="isUser" mat-button routerLink="/"> Get Fruit Suggestion </button>
+        <button *ngIf="isUser" mat-button routerLink="zemljiste/add"> Get Fruit Suggestion </button>
         <button mat-button (click)="logout()">Log Out</button>
       </span>
     </span>

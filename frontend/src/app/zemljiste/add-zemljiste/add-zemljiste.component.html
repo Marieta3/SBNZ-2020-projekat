@@ -1,0 +1,30 @@
+<form [formGroup]="addZemljisteForm" (ngSubmit)="onAddZemljisteSubmit()" novalidate>
+    <div class="form-container form-group">
+
+        <mat-form-field appearance="outline">
+            <input id="phVrednost" matInput type="decimal" formControlName="phVrednost" placeholder="Enter ph Vrednost" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input id="kalcijumKarbonat" matInput type="decimal" formControlName="kalcijumKarbonat" placeholder="Enter kalcijum karbonat" />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <input id="regoin" matInput formControlName="region" placeholder="Enter region name" />
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="fill">
+                <mat-label>Select region</mat-label>
+                  <mat-select id="role"  formControlName="region">
+                    <mat-option value="-">Region</mat-option>
+                        <mat-option *ngFor="let region of regions"
+                            value="region.id">{{region.naziv}}</mat-option>
+                  </mat-select>
+              </mat-form-field> -->
+
+        <br />
+        <button mat-button type="submit" id="submit" class="mat-raised-button mat-primary"
+            [disabled]="!addZemljisteForm.valid">Submit</button>
+    </div>
+</form>

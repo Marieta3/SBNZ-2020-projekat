@@ -17,13 +17,15 @@ import { HttpInterceptorService } from './shared/services/http-interceptor.servi
 import { ListAllFruitComponent } from './fruit/components/list-all-fruit/list-all-fruit.component';
 import { FruitDetailsComponent } from './fruit/components/fruit-details/fruit-details.component';
 import { AddFruitComponent } from './fruit/components/add-fruit/add-fruit.component';
+import { AddZemljisteComponent } from './zemljiste/add-zemljiste/add-zemljiste.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListAllFruitComponent,
     FruitDetailsComponent,
-    AddFruitComponent
+    AddFruitComponent,
+    AddZemljisteComponent
   ],
   imports: [
     BrowserModule,
