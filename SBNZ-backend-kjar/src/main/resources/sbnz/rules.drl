@@ -111,7 +111,6 @@ rule "Klasifikovanje zemljista kao jako karbonatno"
 end
 
 rule "Jabuka"
-	agenda-group "classify"
 	when
 		$z: Zemljiste(phCategory == phCategory.SLABO_KISELO && calcCategory == calcCategory.SLABO_KARBONATNO)
 	then
@@ -123,16 +122,45 @@ rule "Jabuka"
 		update($z);
 end
 
-rule "Predlaganje sorte voca na osnovu unetih podataka"
+rule "Predlaganje sorte voca na osnovu unetih podataka - NIJE STROGO"
 	agenda-group "classify"
+	no-loop
 	when
-		$zemljiste: Zemljiste($region: region, $ph: phCategory, $calc: calcCategory)
-		$list: ArrayList() from collect(Voce($naziv: name, phCategory == $ph && calcCategory == $calc && nadmorskaVisina == $region.nadmorskaVisina))
+		$zemljiste: Zemljiste($r: region, $ph: phCategory, $calc: calcCategory)
+		$list: ArrayList() from collect(
+			Voce($naziv: name, phCategory == $ph 
+			&& calcCategory == $calc 
+			&& nadmorskaVisina >= $r.nadmorskaVisina - 10 
+			&& nadmorskaVisina <= $r.nadmorskaVisina + 10 
+			&& prosecnaGodisnjaTemperatura >= $r.prosecnaGodisnjaTemperatura-2 
+			&& prosecnaGodisnjaTemperatura <= $r.prosecnaGodisnjaTemperatura+2))
 		// provera yadovoljenosti uslova
 	then
-		System.out.println("Predlaganje sorte voca na osnovu unetih podataka");
+		System.out.println("Predlaganje sorte voca na osnovu unetih podataka BLAGO");
 		// System.out.println($naziv);
 		System.out.println("Pronadjeno: " + $list.size() + " sorti.");
+		// $zemljiste.setListaVoca($list);
+		modify($zemljiste) { setListaVoca($list)};
+		insert($list); 
+end
+		
+rule "Predlaganje sorte voca na osnovu unetih podataka - STROGO"
+	agenda-group "classify"
+	no-loop
+	when
+		$zemljiste: Zemljiste($r: region, $ph: phCategory, $calc: calcCategory)
+		$list: ArrayList() from collect(
+			Voce($naziv: name, phCategory == $ph 
+			&& calcCategory == $calc 
+			&& nadmorskaVisina == $r.nadmorskaVisina 
+			&& prosecnaGodisnjaTemperatura == $r.prosecnaGodisnjaTemperatura))
+		// provera yadovoljenosti uslova
+	then
+		System.out.println("Predlaganje sorte voca na osnovu unetih podataka STROGO");
+		//System.out.println($naziv);
+		System.out.println("Pronadjeno: " + $list.size() + " sorti.");
+		// $zemljiste.setListaVoca($list);
+		modify($zemljiste) { setListaVoca($list)};
 		insert($list);
 		
 

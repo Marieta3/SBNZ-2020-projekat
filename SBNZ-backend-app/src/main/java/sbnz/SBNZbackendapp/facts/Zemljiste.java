@@ -1,5 +1,6 @@
 package sbnz.SBNZbackendapp.facts;
 
+import java.util.ArrayList;
 
 public class Zemljiste {
 
@@ -34,7 +35,15 @@ public class Zemljiste {
     
     private String voce;
     
-    public Double getAzot() {
+    private ArrayList<Voce> listaVoca;
+    
+    public ArrayList<Voce> getListaVoca() {
+		return listaVoca;
+	}
+	public void setListaVoca(ArrayList<Voce> listaVoca) {
+		this.listaVoca = listaVoca;
+	}
+	public Double getAzot() {
 		return azot;
 	}
 	public void setAzot(Double azot) {
@@ -103,12 +112,13 @@ public class Zemljiste {
     }
 	
 	
+	
 	@Override
 	public String toString() {
 		return "Zemljiste [id=" + id + ", phVrednost=" + phVrednost + ", kalcijumKarbonat=" + kalcijumKarbonat
 				+ ", azot=" + azot + ", fosfor=" + fosfor + ", kalijum=" + kalijum + ", humus=" + humus
 				+ ", phCategory=" + phCategory + ", calcCategory=" + calcCategory + ", region=" + region + ", voce="
-				+ voce + "]";
+				+ voce + ", listaVoca=" + listaVoca + "]";
 	}
 	@Override
 	public int hashCode() {
