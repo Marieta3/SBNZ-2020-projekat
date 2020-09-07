@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Zemljiste } from 'src/app/models/zemljiste.model';
+import { Observable } from 'rxjs';
 
 
 const ENDPOINTS = {
@@ -13,7 +14,7 @@ const ENDPOINTS = {
 @Injectable({
   providedIn: 'root'
 })
-export class ZemljisteService extends BaseService{
+export class ZemljisteService extends BaseService {
 
   activeUser: User;
   httpOptions = {
@@ -23,18 +24,13 @@ export class ZemljisteService extends BaseService{
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     })
   };
-  
+
   constructor(private http: HttpClient, private router: Router) {
     super();
-    this.activeUser = JSON.parse( localStorage.getItem('user'));
-   }
+    this.activeUser = JSON.parse(localStorage.getItem('user'));
+  }
 
-   send(zemljiste: Zemljiste): void{
-    this.http.post(`${this.baseUrl}${ENDPOINTS.ZEMLJISTE}` , zemljiste, this.httpOptions)
-      .subscribe(result => {
-        console.log(result);
-        console.log('sent zemljiste');
-        //this.router.navigateByUrl('fruit');
-      });
+  send(zemljiste: Zemljiste): Observable<any> {
+    return this.http.post(`${this.baseUrl}${ENDPOINTS.ZEMLJISTE}`, zemljiste, this.httpOptions);
   }
 }

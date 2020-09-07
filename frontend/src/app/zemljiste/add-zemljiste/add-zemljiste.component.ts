@@ -12,6 +12,7 @@ import { Zemljiste } from 'src/app/models/zemljiste.model';
 export class AddZemljisteComponent implements OnInit {
 
   addZemljisteForm: FormGroup;
+  output: string = '';
   //regions = Region[];
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +34,18 @@ export class AddZemljisteComponent implements OnInit {
     const kalcijumKarbonat: number = this.addZemljisteForm.get('kalcijumKarbonat').value;
     const region: string = this.addZemljisteForm.get('region').value;
     let zemljiste: Zemljiste = new Zemljiste(phVrednost, kalcijumKarbonat, region);
-    this.zemljisteService.send(zemljiste);
+    this.zemljisteService.send(zemljiste).subscribe(
+      result => {
+        this.output = '';
+        //console.log(result);
+        result.forEach(element => {
+          console.log(element);
+          this.output = this.output + element.name + ", ";
+        });
+        if(this.output === ''){
+          this.output = "No suggestions";
+        }
+      }
+    );
   }
 }
