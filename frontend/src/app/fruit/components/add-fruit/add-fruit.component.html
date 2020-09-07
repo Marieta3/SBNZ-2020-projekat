@@ -1,23 +1,32 @@
 <form [formGroup]="addFruitForm" (ngSubmit)="onAddFruitSubmit()" novalidate>
   <div class="form-container form-group">
-
+    <mat-label>Enter fruit name</mat-label>
+    <br />
     <mat-form-field appearance="outline">
       <input id="name" matInput formControlName="name" placeholder="Enter fruit name" />
     </mat-form-field>
-
+    <br />
+    <mat-label>Enter fruit description</mat-label>
+    <br />
     <mat-form-field style="width: 600px;" appearance="outline">
       <textarea id="opis" matInput rows="10" formControlName="opis" placeholder="Enter fruit description"></textarea>
     </mat-form-field>
+    <br />
+    <mat-label>Enter nadmorska Visina</mat-label>
     <br />
     <mat-form-field appearance="outline">
       <input id="nadmorskaVisina" matInput type="number" formControlName="nadmorskaVisina"
         placeholder="Enter nadmorskaVisina" />
     </mat-form-field>
     <br />
+    <mat-label>Enter prosecna Godisnja Temperatura</mat-label>
+    <br />
     <mat-form-field appearance="outline">
       <input id="prosecnaGodisnjaTemperatura" matInput type="number" formControlName="prosecnaGodisnjaTemperatura"
         placeholder="Enter prosecnaGodisnjaTemperatura" />
     </mat-form-field>
+    <br />
+    <mat-label>Select ph vrednost</mat-label>
     <br />
     <mat-form-field appearance="fill">
       <mat-label>Select ph vrednost</mat-label>
@@ -29,6 +38,8 @@
         <mat-option value="JAKO_KISELO">JAKO KISELO</mat-option>
       </mat-select>
     </mat-form-field>
+    <br />
+    <mat-label>Select kalcijum karbonat</mat-label>
     <br />
     <mat-form-field appearance="fill">
       <mat-label>Select kalcijum karbonat</mat-label>

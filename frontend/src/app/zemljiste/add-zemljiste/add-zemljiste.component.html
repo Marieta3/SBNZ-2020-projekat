@@ -1,17 +1,21 @@
 <form [formGroup]="addZemljisteForm" (ngSubmit)="onAddZemljisteSubmit()" novalidate>
     <div class="form-container form-group">
-
+        <mat-label>Select ph vrednost</mat-label>
+        <br />
         <mat-form-field appearance="outline">
             <input id="phVrednost" matInput type="decimal" formControlName="phVrednost"
                 placeholder="Enter ph Vrednost" />
         </mat-form-field>
+        <br />
+        <mat-label>Select ph vrednost</mat-label>
         <br />
         <mat-form-field appearance="outline">
             <input id="kalcijumKarbonat" matInput type="decimal" formControlName="kalcijumKarbonat"
                 placeholder="Enter kalcijum karbonat" />
         </mat-form-field>
         <br />
-
+        <mat-label>Select ph vrednost</mat-label>
+        <br />
         <mat-form-field appearance="outline">
             <input id="regoin" matInput formControlName="region" placeholder="Enter region name" />
         </mat-form-field>
@@ -33,6 +37,10 @@
 <br />
 
 <span>
-    <div><h1>Suggested</h1></div>
-    <div><h2>{{output}}</h2></div>
+    <div>
+        <h1>Suggested</h1>
+    </div>
+    <div>
+        <h2>{{output}}</h2>
+    </div>
 </span>
