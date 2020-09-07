@@ -131,6 +131,7 @@ rule "Predlaganje sorte voca na osnovu unetih podataka - NIJE STROGO"
 		System.out.println("Pronadjeno: " + $list.size() + " sorti.");
 		// $zemljiste.setListaVoca($list);
 		modify($zemljiste) { setListaVoca($list)};
+		System.out.println($zemljiste);
 		insert($list); 
 end
 		
@@ -151,6 +152,7 @@ rule "Predlaganje sorte voca na osnovu unetih podataka - STROGO"
 		System.out.println("Pronadjeno: " + $list.size() + " sorti.");
 		// $zemljiste.setListaVoca($list);
 		modify($zemljiste) { setListaVoca($list)};
+		System.out.println($zemljiste);
 		insert($list);
 		
 
