@@ -2,6 +2,18 @@ package sbnz.SBNZbackendapp.models.DTO;
 
 public class ZemljisteDTO {
 	
+	public String getVoce() {
+		return voce;
+	}
+	public void setVoce(String voce) {
+		this.voce = voce;
+	}
+	public int getPoklapanja() {
+		return poklapanja;
+	}
+	public void setPoklapanja(int poklapanja) {
+		this.poklapanja = poklapanja;
+	}
 	private double phVrednost;
     private double kalcijumKarbonat;
     private double azot;

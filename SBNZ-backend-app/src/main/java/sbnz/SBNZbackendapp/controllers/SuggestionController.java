@@ -44,7 +44,7 @@ public class SuggestionController {
 
 		System.out.println("Zemljiste request received for: " + newZemljiste);
 
-		Zemljiste z2 = suggestionService.getClassifiedZemljiste(newZemljiste);
+		Zemljiste z2 = suggestionService.getClassifiedZemljiste(newZemljiste, dto.getPoklapanja());
 
 		return newZemljiste;
 	}

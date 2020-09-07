@@ -36,6 +36,24 @@ public class Voce {
 	@Column
 	private double kolicinaPadavina;
 	
+	public phCategory getPhCategory() {
+		return phCategory;
+	}
+
+
+	public void setPhCategory(phCategory phCategory) {
+		this.phCategory = phCategory;
+	}
+
+
+	public calcCategory getCalcCategory() {
+		return calcCategory;
+	}
+
+
+	public void setCalcCategory(calcCategory calcCategory) {
+		this.calcCategory = calcCategory;
+	}
 	@Column 
 	private double prosecnaGodisnjaTemperatura;
 	

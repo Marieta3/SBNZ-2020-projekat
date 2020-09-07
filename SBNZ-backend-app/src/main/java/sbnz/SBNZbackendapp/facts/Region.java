@@ -9,6 +9,13 @@ import javax.persistence.Id;
 @Entity
 public class Region {
 
+	@Override
+	public String toString() {
+		return "Region [id=" + id + ", naziv=" + naziv + ", nadmorskaVisina=" + nadmorskaVisina
+				+ ", prosecnaGodisnjaTemperatura=" + prosecnaGodisnjaTemperatura + ", minTemperatura=" + minTemperatura
+				+ ", maxTemperatura=" + maxTemperatura + ", kolicinaPadavina=" + kolicinaPadavina + "]";
+	}
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
