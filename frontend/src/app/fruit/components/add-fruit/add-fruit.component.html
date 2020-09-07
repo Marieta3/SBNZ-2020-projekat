@@ -1,27 +1,46 @@
+<form [formGroup]="addFruitForm" (ngSubmit)="onAddFruitSubmit()" novalidate>
+  <div class="form-container form-group">
 
+    <mat-form-field appearance="outline">
+      <input id="name" matInput formControlName="name" placeholder="Enter fruit name" />
+    </mat-form-field>
 
-    <form [formGroup]="addFruitForm" (ngSubmit)="onAddFruitSubmit()" novalidate>
-        <div class="form-container form-group"> 
-
-            <mat-form-field  appearance="outline">
-              <input id="name"
-                     matInput 
-                     formControlName="name"
-                     placeholder="Enter fruit name" />
-            </mat-form-field>
-
-            <mat-form-field style="width: 600px;" appearance="outline">
-                <textarea id="opis"
-                       matInput rows="10"
-                       formControlName="opis"
-                       placeholder="Enter fruit description" ></textarea>
-              </mat-form-field>
-  
-          <br/>
-            <button mat-button type="submit" 
-                    id="submit"
-                    class="mat-raised-button mat-primary" 
-                    [disabled]="!addFruitForm.valid">Submit</button>
-        </div>
-      </form>
-  
+    <mat-form-field style="width: 600px;" appearance="outline">
+      <textarea id="opis" matInput rows="10" formControlName="opis" placeholder="Enter fruit description"></textarea>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <input id="nadmorskaVisina" matInput type="number" formControlName="nadmorskaVisina"
+        placeholder="Enter nadmorskaVisina" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <input id="prosecnaGodisnjaTemperatura" matInput type="number" formControlName="prosecnaGodisnjaTemperatura"
+        placeholder="Enter prosecnaGodisnjaTemperatura" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Select ph vrednost</mat-label>
+      <mat-select id="role" formControlName="phCategory">
+        <mat-option value="ALKALNO">ALKALNO</mat-option>
+        <mat-option value="NEUTRALNO">NEUTRALNO</mat-option>
+        <mat-option value="SLABO_KISELO">SLABO KISELO</mat-option>
+        <mat-option value="KISELO">KISELO</mat-option>
+        <mat-option value="JAKO_KISELO">JAKO KISELO</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Select kalcijum karbonat</mat-label>
+      <mat-select id="role" formControlName="calcCategory">
+        <mat-option value="BESKARBONATNO">BESKARBONATNO</mat-option>
+        <mat-option value="SLABO_KARBONATNO">SLABO KARBONATNO</mat-option>
+        <mat-option value="SREDNJE_KARBONATNO">SREDNJE KARBONATNO</mat-option>
+        <mat-option value="JAKO_KARBONATNO">JAKO KARBONATNO</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <button mat-button type="submit" id="submit" class="mat-raised-button mat-primary"
+      [disabled]="!addFruitForm.valid">Submit</button>
+  </div>
+</form>

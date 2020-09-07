@@ -22,6 +22,10 @@ export class AddFruitComponent implements OnInit {
     this.addFruitForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       opis: ['', [Validators.required]],
+      nadmorskaVisina: [0, [Validators.required]],
+      prosecnaGodisnjaTemperatura: [0, [Validators.required]],
+      phCategory: ['', [Validators.required]],
+      calcCategory: ['', [Validators.required]],
     });
   }
 
@@ -29,7 +33,12 @@ export class AddFruitComponent implements OnInit {
     console.log('ON ADD fruit');
     const name: string = this.addFruitForm.get('name').value;
     const opis: string = this.addFruitForm.get('opis').value;
-    let fruit: Fruit = new Fruit(name, opis);
+    const nadmorskaVisina: number = this.addFruitForm.get('nadmorskaVisina').value;
+    const prosecnaGodisnjaTemperatura: number = this.addFruitForm.get('prosecnaGodisnjaTemperatura').value;
+    const phCategory: string = this.addFruitForm.get('phCategory').value;
+    const calcCategory: string = this.addFruitForm.get('calcCategory').value;
+    let fruit: Fruit = new Fruit(name, opis, nadmorskaVisina, prosecnaGodisnjaTemperatura, phCategory, calcCategory);
+    console.log(fruit);
     this.fruitService.addFruit(fruit);
   }
 
